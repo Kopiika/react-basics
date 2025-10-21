@@ -5,6 +5,11 @@ body {
   min-height: 100vh;
   background:rgb(76, 169, 202);
 }
+
+.wrapper{
+  
+}
+
 .header{
   text-align: left;
   font-weight: 800;
@@ -37,7 +42,7 @@ h1 {
   line-height: 1.1;
 }
 
-.name{
+.h2{
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 8px;

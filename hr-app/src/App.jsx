@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+    <div className="wrapper">
     <div className="header">
       <p>Logo</p>
     </div>
@@ -23,6 +24,7 @@ function App() {
         <Card name ="Katrin" title="Designer" age = "45"/>
       </div>
     <div className="footer">Copyrights</div>
+    </div>
     </>
   )
 }
