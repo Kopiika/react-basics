@@ -1,22 +1,15 @@
 import './App.css'
+import Card from './components/Card'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
-function Card(props) {
-  return (
-  <div className="card"> 
-  <h2 className="name">{props.name}</h2>
-  <div className='text'>Title: {props.title}</div>
-  <div className='text'>Age: {props.age}</div> </div>
-  );
-  }
-  
+
 function App() {
 
   return (
     <>
     <div className="wrapper">
-      <header className="header">
-        <p className='logo'>Logo</p>
-      </header>
+    <Header/>
       <div className="main">
         <div className="cards-container">
             <Card name ="Maria" title="CEO" age="29"/>
@@ -24,7 +17,7 @@ function App() {
             <Card name ="Katrin" title="Designer" age = "45"/>
         </div>
       </div>
-     <footer className="footer">@ WP25K</footer>
+     <Footer/>
     </div>
     </>
   )
