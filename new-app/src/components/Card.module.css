@@ -3,10 +3,50 @@
 	flex-direction: column;
 	gap: 0.5rem;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
-	padding: 3rem;
+	padding: 2rem;
+	transition: all 0.3s ease;
 	min-width: 200px;
 	background-color: white;
+	position: relative;
  }
+
+ .favourite {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-weight: bold;
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+ }
+
+ .addFavouriteBtn{
+	padding: 0.5rem 1rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	font-size: 0.9rem;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  color: #333;
+  background-color: #7de398;
+}
+
+.addFavouriteBtn:hover {
+	background-color: #4ff17a;       /* легке затемнення */
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+	transform: translateY(-2px);     /* трохи “підстрибує” */
+ }
+ 
+ /* Active — ефект при натисканні */
+ .addFavouriteBtn:active {
+	background-color: #7de398;       /* ще трохи темніше */
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1) inset; /* легке втиснення */
+	transform: translateY(0);        /* повертається на місце */
+ }
+ 
