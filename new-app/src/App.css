@@ -1,5 +1,4 @@
 .wrapper {
-	
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;     
@@ -16,13 +15,13 @@
  }
 
  .cards-container{
-	width: 100%;
 	display: grid;
-  	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  	grid-template-columns: repeat(auto-fit, 250px);
  	gap: 2rem;
 	padding: 1rem;
+	justify-content: center;
+	max-width: 100%;
  }
- 
  
  h1 {
 	font-size: 3.2em;
@@ -38,7 +37,35 @@
  p{
 	font-size: 1rem;
  }
+
+ .button{
+	padding: 0.5rem 1rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	font-size: 0.9rem;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  color: #333;
+  background-color: #7de398;
+}
+
+.button {
+	background-color: #4ff17a;       /* легке затемнення */
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+	transform: translateY(-2px);     /* трохи “підстрибує” */
+ }
  
+ /* Active — ефект при натисканні */
+ .button {
+	background-color: #7de398;       /* ще трохи темніше */
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1) inset; /* легке втиснення */
+	transform: translateY(0);        /* повертається на місце */
+ }
+ 
+ 
+
 
 
 

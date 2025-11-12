@@ -24,7 +24,8 @@
 	gap: 0.3rem;
  }
 
- .addFavouriteBtn{
+ .addFavouriteBtn,
+ .deleteBtn{
 	padding: 0.5rem 1rem;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 	font-size: 0.9rem;
@@ -37,14 +38,16 @@
   background-color: #7de398;
 }
 
-.addFavouriteBtn:hover {
+.addFavouriteBtn:hover,
+.deleteBtn {
 	background-color: #4ff17a;       /* легке затемнення */
 	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 	transform: translateY(-2px);     /* трохи “підстрибує” */
  }
  
  /* Active — ефект при натисканні */
- .addFavouriteBtn:active {
+ .addFavouriteBtn:active,
+ .deleteBtn {
 	background-color: #7de398;       /* ще трохи темніше */
 	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1) inset; /* легке втиснення */
 	transform: translateY(0);        /* повертається на місце */
