@@ -1,6 +1,7 @@
 import styles from './Card.module.css';
 
-const Card = ({ id, name, title, age, isFavourite, toggleFavourite }) => {
+
+const Card = ({ id, name, title, age, isFavourite, toggleFavourite, handleDelete }) => {
   return (
     <div className={styles.card}>
       {isFavourite && (
@@ -15,6 +16,10 @@ const Card = ({ id, name, title, age, isFavourite, toggleFavourite }) => {
       <button className={styles.addFavouriteBtn} onClick={() => toggleFavourite(id)}>
         {isFavourite ? 'Remove Favourite' : 'Add Favourite'}
       </button>
+      <button className={styles.deleteBtn} onClick={() => handleDelete(id)}>
+        Delete this person
+      </button>
+
     </div>
   );
 };
