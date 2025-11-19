@@ -22,11 +22,20 @@ function Home() {
 		age: "",
 	})
 
+  const[loading, setLoading] = useState(false)
+
 	useEffect(() =>{
+    setLoading(true);
 		axios.get("http://localhost:3001/employees")
 		.then( (response) => {
 			setEmployees (response.data);
 		})
+    .catch((error) =>{
+      console.log("Error fatching persons: ", error.message);
+    })
+    .finally(() => {
+      setLoading(false);
+    })
 	}, []);
 
   const handleClick = () => {
@@ -63,6 +72,9 @@ function Home() {
     setEmployees(updatedEmployees); 
   };
 
+  if(loading){
+    return <div>Loading...</div>
+  }
   
 
   return (
