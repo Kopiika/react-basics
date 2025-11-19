@@ -1,7 +1,11 @@
 import styles from './Card.module.css';
+import {useNavigate} from "react-router-dom"
 
 
-const Card = ({ id, name, title, age, isFavourite, toggleFavourite, handleDelete }) => {
+const Card = ({ id, name, title, age, isFavourite, toggleFavourite, handleDelete }) => 
+  
+  {
+    const navigate = useNavigate();
   return (
     <div className={styles.card}>
       {isFavourite && (
@@ -18,6 +22,9 @@ const Card = ({ id, name, title, age, isFavourite, toggleFavourite, handleDelete
       </button>
       <button className={styles.deleteBtn} onClick={() => handleDelete(id)}>
         Delete this person
+      </button>
+      <button onClick={()=> navigate(`/employees/${id}`)}>
+        View Employee
       </button>
 
     </div>

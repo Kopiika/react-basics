@@ -1,11 +1,10 @@
 {
   "employees": [
     {
-      "id": "1",
       "name": "Maria",
       "title": "CEO",
-      "age": 29,
-      "isFavourite": true
+      "age": "31",
+      "id": "1"
     },
     {
       "id": "2",
