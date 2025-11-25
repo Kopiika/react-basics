@@ -4,9 +4,10 @@ import styles from './CardForm.module.css';
 function Form({formData, setFormData, handleClick}) {
 
 const handleChange = (e) => {
+	const { name, value } = e.target;
 setFormData((prevState)=>{
 	return {...prevState, 
-	[e.target.name]: e.target.value}
+	[name]: name === "age" ? Number(value): value}
 	});
 };
 

@@ -1,10 +1,18 @@
 import styles from './Card.module.css';
 import {useNavigate} from "react-router-dom"
+import PropTypes from 'prop-types';
 
-
-const Card = ({ id, name, title, age, isFavourite, toggleFavourite, handleDelete }) => 
-  
-  {
+const Card = ({ 
+  id, 
+  name = "Example Name", 
+  title, 
+  age, 
+  isFavourite, 
+  toggleFavourite, 
+  handleDelete }) => {
+    console.log("ID in Card:", id, "Name:", name);
+    console.log("Type of ID:", typeof id);
+    console.log("Type of age:", typeof age);
     const navigate = useNavigate();
   return (
     <div className={styles.card}>
@@ -29,6 +37,15 @@ const Card = ({ id, name, title, age, isFavourite, toggleFavourite, handleDelete
 
     </div>
   );
+};
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  isFavourite: PropTypes.bool.isRequired,
+  toggleFavourite: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default Card;

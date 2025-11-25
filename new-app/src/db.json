@@ -3,7 +3,7 @@
     {
       "name": "Maria",
       "title": "CEO",
-      "age": "31",
+      "age": 31,
       "id": "1"
     },
     {
@@ -18,6 +18,13 @@
       "name": "Karin",
       "title": "Designer",
       "age": 45
+    },
+    {
+      "id": "4",
+      "name": "Eleonora Kopiika",
+      "title": "dfgfd",
+      "age": 30,
+      "isFavourite": false
     }
   ],
   "somethingElse": [
