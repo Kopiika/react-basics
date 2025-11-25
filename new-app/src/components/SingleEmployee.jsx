@@ -1,18 +1,22 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import {useParams} from "react-router-dom";
+import useAxios from "../hooks/useAxios";
 
 const SingleEmployee =()=>{
 	const {id} = useParams();
 	const [employee, setEmployee] = useState (null)
 	console.log("Employee: ", employee)
-	const [loading, setLoading] = useState(true)
+	const [isloading, setisLoading] = useState(true)
 	const[isEditing, setIsEditing] = useState(false)
 	const [formData, setformData] = useState ({
 		name: employee?.name || "",
 		title: employee?.title || "",
 		age: employee?.age || "",
-	})
+	});
+
+	const url = `http://localhost:3001/employees/${id}`;
+	const {data, loading, error } = useAxios (url);
 
 	const handleChange = (e) =>{
 		setformData((prevState) =>{
@@ -26,7 +30,8 @@ const SingleEmployee =()=>{
 	}
 
 	const handleSave =()=>{
-		axios.put(`http://localhost:3001/employees/${id}`, formData)
+		axios
+		.put(`http://localhost:3001/employees/${id}`, formData)
 		.then((response) =>{
 			setEmployee(response.data)
 			setIsEditing(false)
@@ -35,25 +40,23 @@ const SingleEmployee =()=>{
 			console.log("Error: ", error.message)
 		})
 		.finally(()=>{
-			setLoading(false)
+			setisLoading(false)
 		})
 	}
 
 	useEffect(()=>{
-		axios.get(`http://localhost:3001/employees/${id}`).then((response) =>{
-			setEmployee(response.data)
-			setformData({
-				name:response.data.name,
-				title:response.data.title,
-				age:response.data.age,
+		if (data) {
+			setEmployee(data);
+			setformData ({
+				name: data?.name,
+				title: data?.title,
+				age: Number(data?.age),
 			})
-		})
-		.finally(()=>{
-			setLoading(false)
-		})
-	}, [id])
+		} 
+		
+	}, [id, data, loading]);
 
-	if(loading) {
+	if(loading || isloading) {
 		return <div>Loading...</div>
 	}
 
@@ -75,7 +78,7 @@ const SingleEmployee =()=>{
 						onChange={handleChange}/>
 					<label htmlFor="age">Age:</label>
 					<input 
-						type="text" 
+						type="number" 
 						name ="age" 
 						value={formData.age} 
 						onChange={handleChange}/>

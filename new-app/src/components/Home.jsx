@@ -9,6 +9,8 @@ import CardForm from '../components/CardForm'
 import useCount from '../hooks/useCounter'
 import data from '../data'
 import {BrowserRouter, Routes, Route } from "react-router-dom";
+import Button from "@mui/material/Button";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
@@ -82,6 +84,24 @@ function Home() {
     <div className="wrapper">
     
       <main className="main">
+      <Button 
+        startIcon={<DeleteIcon />}
+        variant="contained"
+        color="primary" 
+        sx={{margin:2, padding:"30px"}}>Click me I am from MUI!</Button>
+      <Button variant="contained" disabled>
+        Disabled
+      </Button>
+      <Button endIcon={<DeleteIcon/>} variant="contained" color="limeGreen" href="#contained-buttons">
+        Link
+      </Button>
+
+      <Button variant="contained" color="success">
+        Success
+      </Button>
+      <Button variant="outlined" color="error">
+        Error
+      </Button>
         <div className="cards-container">
         {employees.map((employee) => {
           return (
