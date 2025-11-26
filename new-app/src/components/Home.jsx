@@ -28,7 +28,7 @@ function Home() {
 
 	useEffect(() =>{
     setLoading(true);
-		axios.get("https://react-basics-4ggk.onrender.com/employees/employees")
+		axios.get("/employees")
 		.then( (response) => {
 			setEmployees (response.data);
 		})
@@ -41,7 +41,7 @@ function Home() {
 	}, []);
 
   const handleClick = () => {
-	axios.post("https://react-basics-4ggk.onrender.com/employees", {
+	axios.post("/employees", {
 		  id: String(employees.length +1),
         name: formData.firstName + " " + formData.lastName,
         title: formData.title,
@@ -53,7 +53,7 @@ function Home() {
   };
 
   const handleDelete = (id) => {
-	axios.delete(`https://react-basics-4ggk.onrender.com/employees/${id}`)
+	axios.delete(`/employees/${id}`)
 	.then((response) =>{
 		setEmployees(employees.filter((employee) => employee.id !==id))
 	})

@@ -15,7 +15,7 @@ const SingleEmployee =()=>{
 		age: employee?.age || "",
 	});
 
-	const url = `https://react-basics-4ggk.onrender.com/employees/${id}`;
+	const url = `/employees/${id}`;
 	const {data, loading, error } = useAxios (url);
 
 	const handleChange = (e) =>{
@@ -31,7 +31,7 @@ const SingleEmployee =()=>{
 
 	const handleSave =()=>{
 		axios
-		.put(`https://react-basics-4ggk.onrender.com/employees/${id}`, formData)
+		.put(`/employees/${id}`, formData)
 		.then((response) =>{
 			setEmployee(response.data)
 			setIsEditing(false)
