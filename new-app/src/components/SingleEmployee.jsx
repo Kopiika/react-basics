@@ -7,7 +7,7 @@ const SingleEmployee =()=>{
 	const {id} = useParams();
 	const [employee, setEmployee] = useState (null)
 	console.log("Employee: ", employee)
-	const [isloading, setisLoading] = useState(true)
+	//const [isloading, setisLoading] = useState(true)
 	const[isEditing, setIsEditing] = useState(false)
 	const [formData, setformData] = useState ({
 		name: employee?.name || "",
@@ -39,9 +39,6 @@ const SingleEmployee =()=>{
 		.catch((error)=>{
 			console.log("Error: ", error.message)
 		})
-		.finally(()=>{
-			setisLoading(false)
-		})
 	}
 
 	useEffect(()=>{
@@ -54,11 +51,15 @@ const SingleEmployee =()=>{
 			})
 		} 
 		
-	}, [id, data, loading]);
+	}, [id, data]);
 
-	if(loading || isloading) {
+	if(loading) {
 		return <div>Loading...</div>
 	}
+
+	if (error) {
+		return <div>Error loading employee: {error.message}</div>;
+	 }
 
 	if (isEditing) {
 		return (

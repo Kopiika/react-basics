@@ -7,7 +7,6 @@ import Footer from '../components/Footer'
 import Counter from '../components/Counter'
 import CardForm from '../components/CardForm'
 import useCount from '../hooks/useCounter'
-import data from '../data'
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import Button from "@mui/material/Button";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -54,9 +53,12 @@ function Home() {
 
   const handleDelete = (id) => {
 	axios.delete(`/employees/${id}`)
-	.then((response) =>{
+	.then(() =>{
 		setEmployees(employees.filter((employee) => employee.id !==id))
 	})
+  .catch((error) => {
+    console.log("Error deleting employee: ", error.message);
+  });
 	
   }
  

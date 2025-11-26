@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 const Card = ({ 
   id, 
   name = "Example Name", 
-  title, 
-  age, 
-  isFavourite, 
+  title = "No Title", 
+  age = 0, 
+  isFavourite = false, 
   toggleFavourite, 
   handleDelete }) => {
     console.log("ID in Card:", id, "Name:", name);
@@ -40,7 +40,7 @@ const Card = ({
 };
 
 Card.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   title: PropTypes.string.isRequired,
   age: PropTypes.number.isRequired,
   isFavourite: PropTypes.bool.isRequired,
